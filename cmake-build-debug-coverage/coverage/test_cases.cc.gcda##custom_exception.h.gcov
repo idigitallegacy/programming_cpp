@@ -1,0 +1,104 @@
+        -:    0:Source:/mnt/d/labs_prog_cpp/lab1/class/custom_exception.h
+        -:    0:Graph:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcno
+        -:    0:Data:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef LABS_PROGRAMMING_CUSTOM_EXCEPTION_H
+        -:    2:#define LABS_PROGRAMMING_CUSTOM_EXCEPTION_H
+        -:    3:
+        -:    4:#endif //LABS_PROGRAMMING_CUSTOM_EXCEPTION_H
+        -:    5:
+        -:    6:// General
+        -:    7:#define TOO_MUCH_POINTS 11
+        -:    8:
+        -:    9:// Polyline
+        -:   10:#define POINT_NOT_FOUND 1
+        -:   11:#define POINT_ALREADY_EXISTS 2
+        -:   12:#define STRUCTURE_DESTROYING 3
+        -:   13:#define TOO_FEW_POINTS 4
+        -:   14:
+        -:   15:// Polygon
+        -:   16:#define NOT_CONVEX 5
+        -:   17:
+        -:   18:// Correct polygon
+        -:   19:#define CHANGING_POINT_IS_NOT_ALLOWED 6
+        -:   20:#define INVALID_POINT_MULTIPLYER 7
+        -:   21:#define ARBITRARY_POLYGON 8
+        -:   22:
+        -:   23:// Triangle
+        -:   24:#define NOT_A_TRIANGLE 9
+        -:   25:
+        -:   26:// Trapezium
+        -:   27:#define NOT_A_TRAPEZIUM 10
+        -:   28:
+        -:   29:
+        -:   30:class FigureException : std::exception {
+        -:   31:private:
+        -:   32:    std::string error_;
+        -:   33:    int error_id_;
+        -:   34:
+        -:   35:public:
+function _ZN15FigureExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 18 returned 100% blocks executed 80%
+       18:   36:    explicit FigureException(const std::string &error, const int id) : error_(error)
+       18:   37:                                                                     , error_id_(id) {};
+       18:   37-block  0
+call    0 returned 18
+call    1 returned 18
+branch  2 taken 18 (fallthrough)
+branch  3 taken 0 (throw)
+       18:   37-block  1
+    $$$$$:   37-block  2
+call    4 never executed
+        -:   38:
+        -:   39:    [[nodiscard]] const char *what() noexcept {
+        -:   40:        return error_.c_str();
+        -:   41:    }
+        -:   42:
+        -:   43:    [[nodiscard]] int get_id() const noexcept {
+        -:   44:        return error_id_;
+        -:   45:    }
+        -:   46:
+        -:   47:    [[nodiscard]] std::string get_message() const noexcept {
+        -:   48:        return error_;
+        -:   49:    }
+        -:   50:};
+        -:   51:
+        -:   52:
+        -:   53:
+        -:   54:#define VARIABLE_NOT_SUMMABLE 1
+        -:   55:#define VARIABLE_NOT_MULTIPLIABLE 2
+        -:   56:#define VARIABLE_DIVISION_BY_ZERO 3
+        -:   57:#define VARIABLE_IMPOSSIBLE_NAME 4
+        -:   58:
+        -:   59:#define POLYNOM_UNDEFINED_VALUE 5
+        -:   60:
+        -:   61:
+        -:   62:class AlgebraException : std::exception {
+        -:   63:private:
+        -:   64:    std::string error_;
+        -:   65:    int error_id_;
+        -:   66:
+        -:   67:public:
+function _ZN16AlgebraExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 0 returned 0% blocks executed 0%
+    #####:   68:    explicit AlgebraException(const std::string &error, const int id) : error_(error)
+    #####:   69:    , error_id_(id) {};
+    %%%%%:   69-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   69-block  1
+    $$$$$:   69-block  2
+call    4 never executed
+        -:   70:
+        -:   71:    [[nodiscard]] const char *what() noexcept {
+        -:   72:        return error_.c_str();
+        -:   73:    }
+        -:   74:
+        -:   75:    [[nodiscard]] int get_id() const noexcept {
+        -:   76:        return error_id_;
+        -:   77:    }
+        -:   78:
+        -:   79:    [[nodiscard]] std::string get_message() const noexcept {
+        -:   80:        return error_;
+        -:   81:    }
+        -:   82:};

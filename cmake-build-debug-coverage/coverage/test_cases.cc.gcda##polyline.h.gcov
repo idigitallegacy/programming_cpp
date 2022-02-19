@@ -1,0 +1,393 @@
+        -:    0:Source:/mnt/d/labs_prog_cpp/lab1/class/polyline.h
+        -:    0:Graph:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcno
+        -:    0:Data:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef LABS_PROGRAMMING_POLYLINE_H
+        -:    2:#define LABS_PROGRAMMING_POLYLINE_H
+        -:    3:#endif
+        -:    4:
+        -:    5:/*
+        -:    6: * Exception IDs:
+        -:    7: * 1 - Point was not found
+        -:    8: * 2 - (changing point(x;y) to point(x_n;y_n)) Point located at (x_n; y_n) already exists
+        -:    9: */
+        -:   10:class Polyline {
+        -:   11:protected:
+        -:   12:    std::vector<Point> points_;
+        -:   13:
+        -:   14:    struct UPointsEqual { // Unary predicate for is_exists() method
+        -:   15:        Point point_;
+        -:   16:
+function _ZN8Polyline12UPointsEqualC2ERK5Point called 165 returned 100% blocks executed 100%
+      165:   17:        explicit UPointsEqual(const Point &point) : point_(point) {}
+      165:   17-block  0
+call    0 returned 165
+        -:   18:
+function _ZNK8Polyline12UPointsEqualclERK5Point called 265 returned 100% blocks executed 100%
+      265:   19:        bool operator()(const Point &comparison) const { return comparison == point_; }
+      265:   19-block  0
+call    0 returned 265
+        -:   20:    };
+        -:   21:
+        -:   22:    typedef UPointsEqual equal_points_predicate; // decorator
+        -:   23:
+        -:   24:    /// Checks if the point already exists at the polyline
+function _ZNK8Polyline9is_existsERK5Point called 118 returned 100% blocks executed 100%
+      118:   25:    [[nodiscard]] bool is_exists(const Point &point) const noexcept {
+      118:   26:        if (std::any_of(points_.begin(), points_.end(), equal_points_predicate(point)))
+      118:   26-block  0
+call    0 returned 118
+call    1 returned 118
+call    2 returned 118
+call    3 returned 118
+branch  4 taken 17 (fallthrough)
+branch  5 taken 101
+       17:   27:            return true;
+       17:   27-block  0
+      101:   28:        return false;
+      101:   28-block  0
+        -:   29:    }
+        -:   30:
+        -:   31:    /// Returns the index of needle point at the array, if found. If not, returns 0 (so it should be used with
+        -:   32:    /// is_exists() method).
+function _ZNK8Polyline9get_indexERK5Point called 6 returned 100% blocks executed 90%
+        6:   33:    [[nodiscard]] unsigned long long get_index(const Point &point) const noexcept {
+       14:   34:        for (unsigned long long i = 0; i < points_.size(); ++i)
+        6:   34-block  0
+       14:   34-block  1
+call    0 returned 14
+branch  1 taken 14 (fallthrough)
+branch  2 taken 0
+        8:   34-block  2
+       14:   35:            if (points_[i] == point)
+       14:   35-block  0
+call    0 returned 14
+call    1 returned 14
+branch  2 taken 6 (fallthrough)
+branch  3 taken 8
+        6:   36:                return i;
+        6:   36-block  0
+    #####:   37:        return 0;
+    %%%%%:   37-block  0
+        -:   38:    }
+        -:   39:
+        -:   40:public:
+        -:   41:    /// Changes the coordinates of point to (new_x; new_y). Skips if the point was not found or point
+        -:   42:    /// located at (new_x; new_y) is already exists at the polyline.
+function _ZN8Polyline12change_pointERK5Pointdd called 6 returned 100% blocks executed 29%
+        6:   43:    virtual void change_point(const Point &point, const double new_x, const double new_y) {
+        6:   44:        if (!is_exists(point))
+        6:   44-block  0
+call    0 returned 6
+branch  1 taken 0 (fallthrough)
+branch  2 taken 6
+    #####:   45:            throw FigureException("Point not found", POINT_NOT_FOUND);
+    %%%%%:   45-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   45-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   45-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:   45-block  3
+call   11 never executed
+    $$$$$:   45-block  4
+    $$$$$:   45-block  5
+call   12 never executed
+    $$$$$:   45-block  6
+    $$$$$:   45-block  7
+call   13 never executed
+        6:   46:        else if (is_exists(Point(new_x, new_y))) {
+        6:   46-block  0
+call    0 returned 6
+call    1 returned 6
+branch  2 taken 0 (fallthrough)
+branch  3 taken 6
+    #####:   47:            throw FigureException("Point is already exists. Use erase() method.", POINT_ALREADY_EXISTS);
+    %%%%%:   47-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   47-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   47-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:   47-block  3
+call   11 never executed
+    $$$$$:   47-block  4
+    $$$$$:   47-block  5
+call   12 never executed
+    $$$$$:   47-block  6
+    $$$$$:   47-block  7
+call   13 never executed
+        -:   48:        } else {
+        6:   49:            unsigned long long index = get_index(point);
+        6:   49-block  0
+call    0 returned 6
+        6:   50:            points_[index].setX(new_x);
+call    0 returned 6
+call    1 returned 6
+        6:   51:            points_[index].setY(new_y);
+call    0 returned 6
+call    1 returned 6
+        -:   52:        }
+        6:   53:    }
+        -:   54:
+        -:   55:    /// Adds point if it's a unique point
+function _ZN8Polyline10push_pointERK5Point called 0 returned 0% blocks executed 0%
+    #####:   56:    virtual void push_point(const Point &point) {
+    #####:   57:        if (is_exists(point)) {
+    %%%%%:   57-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   58:            throw FigureException("Point is already exists.", POINT_ALREADY_EXISTS);
+    %%%%%:   58-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   58-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   58-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:   58-block  3
+call   11 never executed
+    $$$$$:   58-block  4
+    $$$$$:   58-block  5
+call   12 never executed
+    $$$$$:   58-block  6
+    $$$$$:   58-block  7
+call   13 never executed
+        -:   59:        }
+    #####:   60:        points_.push_back(point);
+    %%%%%:   60-block  0
+call    0 never executed
+    #####:   61:    }
+        -:   62:
+        -:   63:    /// Erases point from polyline. Skips if the point was not found, point
+        -:   64:    /// located at (new_x; new_y) is already exists at the polyline or deletion of a point will result in a line.
+        -:   65:    void erase(const Point &point) {
+        -:   66:        if (points_.size() < 4) {
+        -:   67:            throw FigureException("Deletion of a point will destroy structure.", STRUCTURE_DESTROYING);
+        -:   68:        }
+        -:   69:        unsigned long long index = get_index(point);
+        -:   70:        if (index == 0 && !is_exists(point)) {
+        -:   71:            throw FigureException("Point not found.", POINT_NOT_FOUND);
+        -:   72:        }
+        -:   73:        points_.erase(points_.begin() + index);
+        -:   74:    }
+        -:   75:
+        -:   76:    /// Returns std::vector<Point> - an array of points at the polyline
+function _ZNK8Polyline12get_polylineEv called 10 returned 100% blocks executed 100%
+       10:   77:    [[nodiscard]] std::vector<Point> get_polyline() const noexcept {
+       10:   78:        return points_;
+       10:   78-block  0
+call    0 returned 10
+        -:   79:    }
+        -:   80:
+        -:   81:    /// Returns a nuber of points in the polyline
+        -:   82:    [[nodiscard]] unsigned long long get_size() const noexcept {
+        -:   83:        return points_.size();
+        -:   84:    }
+        -:   85:
+        -:   86:    /// Returns length of the polyline
+function _ZNK8Polyline10get_lengthEv called 0 returned 0% blocks executed 0%
+    #####:   87:    [[nodiscard]] virtual double get_length() const noexcept {
+    #####:   88:        double length = 0;
+    #####:   89:        for (unsigned long long i = 0; i < points_.size() - 1; ++i) {
+    %%%%%:   89-block  0
+    %%%%%:   89-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   90:            length += std::sqrt(
+    #####:   91:                    (points_[i + 1].getX() - points_[i].getX()) * (points_[i + 1].getX() - points_[i].getX())
+    %%%%%:   91-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+call    6 never executed
+call    7 never executed
+    #####:   92:                    + (points_[i + 1].getY() - points_[i].getY()) * (points_[i + 1].getY() - points_[i].getY()));
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+call    6 never executed
+call    7 never executed
+        -:   93:        }
+    #####:   94:        return length;
+    %%%%%:   94-block  0
+        -:   95:    }
+        -:   96:
+        -:   97:    /// This constructor is only used for dynamic polymorphism
+function _ZN8PolylineC2Ev called 24 returned 100% blocks executed 100%
+       24:   98:    Polyline() noexcept {
+       24:   98-block  0
+call    0 returned 24
+       24:   99:        Point tmp_a(0, 0);
+call    0 returned 24
+       24:  100:        Point tmp_b(1, 0);
+call    0 returned 24
+       24:  101:        Point tmp_c(1, 1);
+call    0 returned 24
+       48:  102:        std::vector<Point> array = {tmp_a, tmp_b, tmp_c};
+call    0 returned 24
+call    1 returned 24
+call    2 returned 24
+call    3 returned 24
+call    4 returned 24
+call    5 returned 24
+       24:  103:        points_ = array;
+call    0 returned 24
+       24:  104:    }
+        -:  105:
+        -:  106:    explicit Polyline(const Point pts[], unsigned long long count = 3) {
+        -:  107:        if (count < 2) {
+        -:  108:            throw FigureException("Too few points to initialize polyline", TOO_FEW_POINTS);
+        -:  109:        }
+        -:  110:        unsigned long long added_points = 0;
+        -:  111:        for (int i = 0; i < count; ++i)
+        -:  112:            if (!is_exists(pts[i])) {
+        -:  113:                points_.push_back(pts[i]);
+        -:  114:                ++added_points;
+        -:  115:            }
+        -:  116:        if (added_points < 3)
+        -:  117:            throw FigureException("Added too few points to initialize polyline", TOO_FEW_POINTS);
+        -:  118:    }
+        -:  119:
+function _ZN8PolylineC2ERKSt6vectorI5PointSaIS1_EE called 25 returned 92% blocks executed 50%
+       27:  120:    explicit Polyline(const std::vector<Point> &pts) {
+       25:  120-block  0
+call    0 returned 25
+        2:  120-block  1
+call    1 returned 2
+       25:  121:        if (pts.size() < 2)
+call    0 returned 25
+branch  1 taken 0 (fallthrough)
+branch  2 taken 25
+    #####:  122:            throw FigureException("Too few points to initialize polyline", TOO_FEW_POINTS);
+    %%%%%:  122-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:  122-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  122-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:  122-block  3
+call   11 never executed
+    $$$$$:  122-block  4
+    $$$$$:  122-block  5
+call   12 never executed
+    $$$$$:  122-block  6
+    $$$$$:  122-block  7
+call   13 never executed
+        -:  123:
+       25:  124:        unsigned long long added_points = 0;
+      111:  125:        for (const auto &pt : pts)
+       25:  125-block  0
+call    0 returned 25
+call    1 returned 25
+      111:  125-block  1
+call    2 returned 111
+branch  3 taken 86 (fallthrough)
+branch  4 taken 25
+       86:  125-block  2
+call    5 returned 86
+       86:  125-block  3
+call    6 returned 86
+       86:  126:            if (!is_exists(pt)) {
+call    0 returned 86
+branch  1 taken 85 (fallthrough)
+branch  2 taken 1
+       85:  127:                points_.push_back(pt);
+       85:  127-block  0
+call    0 returned 85
+branch  1 taken 85 (fallthrough)
+branch  2 taken 0 (throw)
+       85:  128:                ++added_points;
+       85:  128-block  0
+        -:  129:            }
+        -:  130:
+       25:  131:        if (added_points < 3)
+       25:  131-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 23
+        2:  132:            throw FigureException("Added too few points to initialize polyline", TOO_FEW_POINTS);
+        2:  132-block  0
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+branch  3 taken 2 (fallthrough)
+branch  4 taken 0 (throw)
+        2:  132-block  1
+call    5 returned 2
+branch  6 taken 2 (fallthrough)
+branch  7 taken 0 (throw)
+        2:  132-block  2
+call    8 returned 2
+call    9 returned 2
+call   10 returned 2
+    $$$$$:  132-block  3
+call   11 never executed
+    $$$$$:  132-block  4
+    $$$$$:  132-block  5
+call   12 never executed
+    $$$$$:  132-block  6
+    $$$$$:  132-block  7
+call   13 never executed
+       23:  133:    }
+       23:  133-block  0
+        -:  134:
+        -:  135:    Polyline(const Polyline &source) noexcept {
+        -:  136:        points_ = source.points_;
+        -:  137:    }
+        -:  138:
+function _ZN8PolylineaSERKS_ called 5 returned 100% blocks executed 100%
+        5:  139:    Polyline &operator=(const Polyline &source) noexcept {
+        5:  140:        points_ = source.points_;
+        5:  140-block  0
+call    0 returned 5
+        5:  141:        return *this;
+        -:  142:    }
+        -:  143:
+function _ZN8PolylineD2Ev called 33 returned 100% blocks executed 100%
+       33:  144:    ~Polyline() noexcept {
+call    0 returned 33
+       33:  145:        points_.clear();
+       33:  145-block  0
+call    0 returned 33
+       33:  146:    }
+        -:  147:};
+        -:  148:

@@ -1,0 +1,5 @@
+if(EXISTS "/mnt/d/labs_prog_cpp/lab1/cmake-build-debug/hello_test[1]_tests.cmake")
+  include("/mnt/d/labs_prog_cpp/lab1/cmake-build-debug/hello_test[1]_tests.cmake")
+else()
+  add_test(hello_test_NOT_BUILT hello_test_NOT_BUILT)
+endif()

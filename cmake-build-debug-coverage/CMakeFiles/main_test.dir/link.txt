@@ -1,0 +1,1 @@
+/usr/bin/c++  --coverage -g   CMakeFiles/main_test.dir/test_cases.cc.o  -o main_test  lib/libgtest_maind.a lib/libgtestd.a -lpthread 

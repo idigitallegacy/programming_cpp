@@ -1,0 +1,387 @@
+        -:    0:Source:/mnt/d/labs_prog_cpp/lab1/class/trapezium.h
+        -:    0:Graph:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcno
+        -:    0:Data:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Михаил on 09.02.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LABS_PROGRAMMING_TRAPEZIUM_H
+        -:    6:#ifdef LABS_PROGRAMMING_POLYGON_H
+        -:    7:#define LABS_PROGRAMMING_TRAPEZIUM_H
+        -:    8:
+        -:    9:class Trapezium : public Polygon {
+        -:   10:private:
+        -:   11:    /// Checks if the [source] is a trapezium
+function _ZN9Trapezium18check_if_trapeziumERKSt6vectorI5PointSaIS1_EE called 7 returned 86% blocks executed 68%
+        7:   12:    static bool check_if_trapezium(const std::vector<Point> &source) {
+        7:   13:        if (source.size() < 4)
+        7:   13-block  0
+call    0 returned 7
+branch  1 taken 1 (fallthrough)
+branch  2 taken 6
+        1:   14:            throw FigureException("Too few points to initialize a trapezium", TOO_FEW_POINTS);
+        1:   14-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:   14-block  1
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:   14-block  2
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+    $$$$$:   14-block  3
+call   11 never executed
+    $$$$$:   14-block  4
+    $$$$$:   14-block  5
+call   12 never executed
+    $$$$$:   14-block  6
+    $$$$$:   14-block  7
+call   13 never executed
+        6:   15:        if (source.size() > 4)
+        6:   15-block  0
+call    0 returned 6
+branch  1 taken 0 (fallthrough)
+branch  2 taken 6
+    #####:   16:            throw FigureException("Too much points to initialize a trapezium", TOO_MUCH_POINTS);
+    %%%%%:   16-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   16-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   16-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:   16-block  3
+call   11 never executed
+    $$$$$:   16-block  4
+    $$$$$:   16-block  5
+call   12 never executed
+    $$$$$:   16-block  6
+    $$$$$:   16-block  7
+call   13 never executed
+        -:   17:
+        6:   18:        if (!check_if_convex(source))
+        6:   18-block  0
+call    0 returned 6
+branch  1 taken 0 (fallthrough)
+branch  2 taken 6
+    #####:   19:            throw FigureException("New shape is not convex", NOT_CONVEX);
+    %%%%%:   19-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   19-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   19-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:   19-block  3
+call   11 never executed
+    $$$$$:   19-block  4
+    $$$$$:   19-block  5
+call   12 never executed
+    $$$$$:   19-block  6
+    $$$$$:   19-block  7
+call   13 never executed
+        -:   20:
+        6:   21:        if (!check_if_convex(source))
+        6:   21-block  0
+call    0 returned 6
+branch  1 taken 0 (fallthrough)
+branch  2 taken 6
+    #####:   22:            return false;
+    %%%%%:   22-block  0
+        -:   23:
+       30:   24:        for (unsigned long long i = 0; i < source.size(); ++i) {
+        6:   24-block  0
+       30:   24-block  1
+call    0 returned 30
+branch  1 taken 24 (fallthrough)
+branch  2 taken 6
+       24:   24-block  2
+       24:   25:            if (!check_if_unique(source, i, source[i]))
+       24:   25-block  0
+call    0 returned 24
+call    1 returned 24
+branch  2 taken 24 (fallthrough)
+branch  3 taken 0 (throw)
+       24:   25-block  1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 24
+    #####:   26:                return false;
+    %%%%%:   26-block  0
+        -:   27:        }
+        -:   28:
+        6:   29:        Point AB(source[1].getX() - source[0].getX(), source[1].getY() - source[0].getY());
+        6:   29-block  0
+call    0 returned 6
+call    1 returned 6
+call    2 returned 6
+call    3 returned 6
+call    4 returned 6
+call    5 returned 6
+call    6 returned 6
+call    7 returned 6
+call    8 returned 6
+        6:   30:        Point BC(source[2].getX() - source[1].getX(), source[2].getY() - source[1].getY());
+call    0 returned 6
+call    1 returned 6
+call    2 returned 6
+call    3 returned 6
+call    4 returned 6
+call    5 returned 6
+call    6 returned 6
+call    7 returned 6
+call    8 returned 6
+        6:   31:        Point CD(source[3].getX() - source[2].getX(), source[3].getY() - source[2].getY());
+call    0 returned 6
+call    1 returned 6
+call    2 returned 6
+call    3 returned 6
+call    4 returned 6
+call    5 returned 6
+call    6 returned 6
+call    7 returned 6
+call    8 returned 6
+        6:   32:        Point DA(source[0].getX() - source[3].getX(), source[0].getY() - source[3].getY());
+call    0 returned 6
+call    1 returned 6
+call    2 returned 6
+call    3 returned 6
+call    4 returned 6
+call    5 returned 6
+call    6 returned 6
+call    7 returned 6
+call    8 returned 6
+        -:   33:
+        8:   34:        if ((AB.getX() * CD.getY() - AB.getY() * CD.getX()) != 0 &&
+call    0 returned 6
+call    1 returned 6
+call    2 returned 6
+call    3 returned 6
+branch  4 taken 2 (fallthrough)
+branch  5 taken 4
+        2:   34-block  0
+        4:   34-block  1
+        6:   34-block  2
+branch  6 taken 2 (fallthrough)
+branch  7 taken 4
+        2:   35:            (BC.getX() * DA.getY() - BC.getY() * DA.getX()) != 0)
+        2:   35-block  0
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0
+        2:   36:            return false;
+        2:   36-block  0
+        -:   37:
+       8*:   38:        if ((AB.getX() * CD.getY() - AB.getY() * CD.getX()) == 0 &&
+        4:   38-block  0
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+call    3 returned 4
+branch  4 taken 4 (fallthrough)
+branch  5 taken 0
+    %%%%%:   38-block  1
+        4:   38-block  2
+        4:   38-block  3
+branch  6 taken 0 (fallthrough)
+branch  7 taken 4
+        4:   39:            (AB.getX() * BC.getY() - AB.getY() * BC.getX()) == 0)
+        4:   39-block  0
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+call    3 returned 4
+branch  4 taken 0 (fallthrough)
+branch  5 taken 4
+    #####:   40:            return false;
+    %%%%%:   40-block  0
+        4:   41:        return true;
+        4:   41-block  0
+        -:   42:    }
+        -:   43:
+        -:   44:public:
+        -:   45:    /// Changes the coordinates of point to (new_x; new_y). Skips if the point was not found, point
+        -:   46:    /// located at (new_x; new_y) is already exists at the polyline or changing the point comes to trapezium destroying
+function _ZN9Trapezium12change_pointERK5Pointdd called 2 returned 0% blocks executed 58%
+        2:   47:    void change_point(const Point &point, double new_x, double new_y) final {
+       4*:   48:        std::vector<Point> tmp = points_;
+        2:   48-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+    %%%%%:   48-block  1
+call    3 never executed
+        2:   48-block  2
+call    4 returned 2
+        2:   49:        Polygon::change_point(point, new_x, new_y);
+        2:   49-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1 (throw)
+        1:   50:        if (!check_if_trapezium(points_))
+        1:   50-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   50-block  1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:   51:            throw FigureException("New shape is not a trapezium", NOT_A_TRAPEZIUM);
+        1:   51-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:   51-block  1
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:   51-block  2
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+    $$$$$:   51-block  3
+call   11 never executed
+    $$$$$:   51-block  4
+    $$$$$:   51-block  5
+call   12 never executed
+    $$$$$:   51-block  6
+    $$$$$:   51-block  7
+call   13 never executed
+    #####:   52:    }
+        -:   53:
+function _ZN9Trapezium10push_pointERK5Point called 0 returned 0% blocks executed 0%
+    #####:   54:    void push_point(const Point &point) override {
+    #####:   55:        throw FigureException("Pushing a point destroys figure", STRUCTURE_DESTROYING);
+    %%%%%:   55-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   55-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   55-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:   55-block  3
+call   11 never executed
+    $$$$$:   55-block  4
+    $$$$$:   55-block  5
+call   12 never executed
+    $$$$$:   55-block  6
+    $$$$$:   55-block  7
+call   13 never executed
+        -:   56:    }
+        -:   57:
+        -:   58:    explicit Trapezium(const Point pts[], const unsigned long long count = 0) : Polygon(pts, count) {
+        -:   59:        if (!check_if_trapezium(points_))
+        -:   60:            throw FigureException("New shape is not a trapezium", NOT_A_TRAPEZIUM);
+        -:   61:    }
+        -:   62:
+function _ZN9TrapeziumC2ERKSt6vectorI5PointSaIS1_EE called 8 returned 50% blocks executed 62%
+       10:   63:    explicit Trapezium(const std::vector<Point> &pts) : Polygon(pts) {
+        8:   63-block  0
+call    0 returned 6
+        2:   63-block  1
+call    1 returned 2
+        6:   64:        if (!check_if_trapezium(points_))
+call    0 returned 6
+branch  1 taken 5 (fallthrough)
+branch  2 taken 1 (throw)
+        5:   64-block  0
+branch  3 taken 1 (fallthrough)
+branch  4 taken 4
+        1:   65:            throw FigureException("New shape is not a trapezium", NOT_A_TRAPEZIUM);
+        1:   65-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:   65-block  1
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:   65-block  2
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+    $$$$$:   65-block  3
+call   11 never executed
+    $$$$$:   65-block  4
+    $$$$$:   65-block  5
+call   12 never executed
+    $$$$$:   65-block  6
+    $$$$$:   65-block  7
+call   13 never executed
+        4:   66:    }
+        4:   66-block  0
+        -:   67:
+        -:   68:    explicit Trapezium(const Polygon &source) : Polygon(source) {
+        -:   69:        if (!check_if_trapezium(points_))
+        -:   70:            throw FigureException("New shape is not a trapezium", NOT_A_TRAPEZIUM);
+        -:   71:    }
+        -:   72:
+        -:   73:#ifdef LABS_PROGRAMMING_CORRECTPOLYGON_H
+        -:   74:
+        -:   75:    explicit Trapezium(const CorrectPolygon &source) : Polygon(source.get_polyline()) {
+        -:   76:        if (!check_if_trapezium(points_))
+        -:   77:            throw FigureException("New shape is not a trapezium", NOT_A_TRAPEZIUM);
+        -:   78:    }
+        -:   79:
+        -:   80:#endif
+        -:   81:    // Copy constructor
+        -:   82:    Trapezium(const Trapezium &source) noexcept = default;
+        -:   83:
+        -:   84:    Trapezium &operator=(const std::vector<Point> &source) {
+        -:   85:        if (!check_if_trapezium(source))
+        -:   86:            throw FigureException("New shape is not a trapezium", NOT_A_TRAPEZIUM);
+        -:   87:        points_ = source;
+        -:   88:        return *this;
+        -:   89:    }
+        -:   90:
+        -:   91:#ifdef LABS_PROGRAMMING_CORRECTPOLYGON_H
+        -:   92:    Trapezium &operator=(const CorrectPolygon &source) {
+        -:   93:        if (!check_if_trapezium(source.get_polyline()))
+        -:   94:            throw FigureException("New shape is not a trapezium", NOT_A_TRAPEZIUM);
+        -:   95:        points_ = source.get_polyline();
+        -:   96:        return *this;
+        -:   97:    }
+        -:   98:
+        -:   99:#endif
+        -:  100:
+        -:  101:    Trapezium &operator=(const Trapezium &source) noexcept {
+        -:  102:        points_ = source.points_;
+        -:  103:        return *this;
+        -:  104:    }
+        -:  105:};
+        -:  106:
+        -:  107:#endif //LABS_PROGRAMMING_POLYGON_H
+        -:  108:#endif //LABS_PROGRAMMING_TRAPEZIUM_H

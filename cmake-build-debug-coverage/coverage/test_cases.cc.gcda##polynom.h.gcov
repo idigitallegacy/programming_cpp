@@ -1,0 +1,617 @@
+        -:    0:Source:/mnt/d/labs_prog_cpp/lab1/class/polynom.h
+        -:    0:Graph:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcno
+        -:    0:Data:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Михаил on 18.02.2022.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LAB1_POLYNOM_H
+        -:    6:#define LAB1_POLYNOM_H
+        -:    7:
+        -:    8:#endif //LAB1_POLYNOM_H
+        -:    9:
+        -:   10:class Polynom {
+        -:   11:private:
+        -:   12:    std::vector<Variable> polynom_;
+        -:   13:
+        -:   14:    struct {
+function _ZN7PolynomUt_clER8VariableS2_ called 0 returned 0% blocks executed 0%
+    #####:   15:        bool operator()(Variable &left, Variable &right) {
+    #####:   16:            return left.get_power() > right.get_power();
+    %%%%%:   16-block  0
+call    0 never executed
+call    1 never executed
+        -:   17:        }
+        -:   18:    } comparison_function;
+        -:   19:
+        -:   20:    long long get_index(Variable &variable) {
+        -:   21:        for (long long i = 0; i < polynom_.size(); ++i)
+        -:   22:            if (polynom_[i] == variable)
+        -:   23:                return i;
+        -:   24:        return -1;
+        -:   25:    }
+        -:   26:
+function _ZN7Polynom14sort_by_powersEv called 0 returned 0% blocks executed 0%
+    #####:   27:    void sort_by_powers() {
+    #####:   28:        std::sort(polynom_.begin(), polynom_.end(), comparison_function);
+    %%%%%:   28-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   29:        for (long long i = 1; i < polynom_.size(); ++i) {
+    %%%%%:   29-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   29-block  1
+    #####:   30:            if (polynom_[i].get_coefficient() == 0)
+    %%%%%:   30-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   31:                polynom_.erase(polynom_.begin() + i);
+    %%%%%:   31-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   31-block  1
+    $$$$$:   31-block  2
+    $$$$$:   31-block  3
+    $$$$$:   31-block  4
+call    6 never executed
+    #####:   32:            if (polynom_[i-1].get_name() == polynom_[i].get_name() &&
+    %%%%%:   32-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   32-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   32-block  2
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   32-block  3
+    %%%%%:   32-block  4
+    %%%%%:   32-block  5
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   32-block  6
+call   15 never executed
+    %%%%%:   32-block  7
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   32-block  8
+call   18 never executed
+    %%%%%:   32-block  9
+branch 19 never executed
+branch 20 never executed
+    $$$$$:   32-block 10
+branch 21 never executed
+branch 22 never executed
+    $$$$$:   32-block 11
+call   23 never executed
+    $$$$$:   32-block 12
+    $$$$$:   32-block 13
+branch 24 never executed
+branch 25 never executed
+    $$$$$:   32-block 14
+call   26 never executed
+    $$$$$:   32-block 15
+call   27 never executed
+    #####:   33:            polynom_[i-1].get_power() == polynom_[i].get_power()) {
+    %%%%%:   33-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   34:                polynom_[i] += polynom_[i - 1];
+    %%%%%:   34-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   35:                polynom_.erase(polynom_.begin() + i - 1);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   35-block  0
+    $$$$$:   35-block  1
+    $$$$$:   35-block  2
+    $$$$$:   35-block  3
+        -:   36:            }
+        -:   37:        }
+    #####:   38:    }
+    %%%%%:   38-block  0
+        -:   39:
+        -:   40:public:
+function _ZN7PolynomC2ER8Variable called 1 returned 100% blocks executed 56%
+        2:   41:    explicit Polynom(Variable &variable) : polynom_({variable}) {}
+        1:   41-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   41-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   41-block  2
+        2:   41-block  3
+branch  7 taken 1 (fallthrough)
+branch  8 taken 1
+        1:   41-block  4
+call    9 returned 1
+        1:   41-block  5
+call   10 returned 1
+    $$$$$:   41-block  6
+    $$$$$:   41-block  7
+branch 11 never executed
+branch 12 never executed
+    $$$$$:   41-block  8
+call   13 never executed
+    $$$$$:   41-block  9
+    $$$$$:   41-block 10
+call   14 never executed
+function _ZN7PolynomC2ERSt6vectorI8VariableSaIS1_EE called 2 returned 100% blocks executed 100%
+        2:   42:    explicit Polynom(std::vector<Variable> &polynom) : polynom_(polynom) {}
+        2:   42-block  0
+call    0 returned 2
+        -:   43:    explicit Polynom(Polynom &polynom) {
+        -:   44:        polynom_ = polynom.polynom_;
+        -:   45:    }
+        -:   46:
+        -:   47:    std::vector<Variable> get_polynom() {
+        -:   48:        sort_by_powers();
+        -:   49:        return polynom_;
+        -:   50:    }
+        -:   51:
+function _ZN7Polynom9get_valueERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS8_EE called 2 returned 100% blocks executed 56%
+        2:   52:    [[nodiscard]] double get_value(std::vector<std::pair<std::string, double>> &variable_values) {
+        2:   53:        double result = 0;
+        8:   54:        for (auto & i : polynom_) {
+        2:   54-block  0
+call    0 returned 2
+call    1 returned 2
+        8:   54-block  1
+call    2 returned 8
+branch  3 taken 6 (fallthrough)
+branch  4 taken 2
+        6:   54-block  2
+call    5 returned 6
+        6:   54-block  3
+call    6 returned 6
+       12:   55:            for (long long j = 0; j < variable_values.size(); ++j){
+       12:   55-block  0
+call    0 returned 12
+branch  1 taken 6 (fallthrough)
+branch  2 taken 6
+        6:   55-block  1
+        6:   56:                if (i.get_name() == variable_values[j].first)
+        6:   56-block  0
+call    0 returned 6
+call    1 returned 6
+branch  2 taken 6 (fallthrough)
+branch  3 taken 0 (throw)
+        6:   56-block  1
+call    4 returned 6
+call    5 returned 6
+branch  6 taken 6 (fallthrough)
+branch  7 taken 0
+        6:   57:                    result += i.get_coefficient() * pow(variable_values[j].second, i.get_power());
+        6:   57-block  0
+call    0 returned 6
+call    1 returned 6
+call    2 returned 6
+    #####:   58:                else if (j == variable_values.size() - 1)
+    %%%%%:   58-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   59:                    throw AlgebraException("One of the variables is not provided.", POLYNOM_UNDEFINED_VALUE);
+    %%%%%:   59-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   59-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   59-block  2
+call    8 never executed
+call    9 never executed
+call   10 never executed
+    $$$$$:   59-block  3
+call   11 never executed
+    $$$$$:   59-block  4
+    $$$$$:   59-block  5
+call   12 never executed
+    $$$$$:   59-block  6
+    $$$$$:   59-block  7
+call   13 never executed
+        -:   60:            }
+        -:   61:        }
+        2:   62:        return result;
+        2:   62-block  0
+        2:   62-block  1
+        -:   63:    }
+        -:   64:
+        -:   65:    Polynom &operator=(const Variable &variable) {
+        -:   66:        polynom_.clear();
+        -:   67:        polynom_.push_back(variable);
+        -:   68:        return *this;
+        -:   69:    }
+        -:   70:
+        -:   71:    Polynom &operator=(const Polynom &polynom) {
+        -:   72:        polynom_ = polynom.polynom_;
+        -:   73:        sort_by_powers();
+        -:   74:        return *this;
+        -:   75:    }
+        -:   76:
+        -:   77:    bool operator==(const Polynom &polynom) const {
+        -:   78:        for (long long i = 0; i < polynom_. size(); ++i) {
+        -:   79:            for (long long j = 0; j < polynom.polynom_.size(); ++j) {
+        -:   80:                if ((polynom.polynom_[j].get_name() == polynom_[i].get_name()) &&
+        -:   81:                (polynom_[i].get_coefficient() != polynom.polynom_[i].get_coefficient() ||
+        -:   82:                polynom_[i].get_power() != polynom.polynom_[i].get_power()) ||
+        -:   83:                (polynom.polynom_[j].get_name() != polynom_[i].get_name() && j == polynom.polynom_.size() - 1))
+        -:   84:                    return false;
+        -:   85:            }
+        -:   86:        }
+        -:   87:        return true;
+        -:   88:    };
+        -:   89:
+        -:   90:    bool operator!=(const Polynom &polynom) const {
+        -:   91:        return !(*this == polynom);
+        -:   92:    }
+        -:   93:
+        -:   94:    Polynom &operator+() {
+        -:   95:        sort_by_powers();
+        -:   96:        return *this;
+        -:   97:    }
+        -:   98:
+        -:   99:    Polynom &operator-() {
+        -:  100:        sort_by_powers();
+        -:  101:        return *this;
+        -:  102:    }
+        -:  103:
+        -:  104:    Polynom &operator+(const Polynom &polynom) const {
+        -:  105:        std::vector<Variable> tmp;
+        -:  106:        for (const auto & i : polynom_) {
+        -:  107:            for (long long j = 0; j < polynom.polynom_.size(); ++j) {
+        -:  108:                try {
+        -:  109:                    tmp.push_back(i + polynom_[j]);
+        -:  110:                } catch (AlgebraException &exception) {
+        -:  111:                    if (exception.get_id() != VARIABLE_NOT_SUMMABLE)
+        -:  112:                        throw AlgebraException(exception.what(), exception.get_id());
+        -:  113:                    else if (j == polynom.polynom_.size() - 1){
+        -:  114:                        tmp.push_back(i);
+        -:  115:                        tmp.push_back(polynom_[j]);
+        -:  116:                    }
+        -:  117:                }
+        -:  118:            }
+        -:  119:        }
+        -:  120:        Polynom temp_sorted(tmp);
+        -:  121:        temp_sorted.sort_by_powers();
+        -:  122:        return *(new Polynom(temp_sorted));
+        -:  123:    }
+        -:  124:
+        -:  125:    Polynom &operator+(Variable &variable) const {
+        -:  126:        Polynom tmp(variable);
+        -:  127:        Polynom temp_sorted(*this + tmp);
+        -:  128:        temp_sorted.sort_by_powers();
+        -:  129:        return *(new Polynom(temp_sorted));
+        -:  130:    }
+        -:  131:
+        -:  132:    Polynom &operator+(const double addend) const {
+        -:  133:        Variable tmp(addend);
+        -:  134:        return *(new Polynom(*this + tmp));
+        -:  135:    }
+        -:  136:
+        -:  137:    Polynom & operator+=(Polynom &polynom) {
+        -:  138:        polynom_ = (*this + polynom).get_polynom();
+        -:  139:        sort_by_powers();
+        -:  140:        return *this;
+        -:  141:    }
+        -:  142:
+        -:  143:    Polynom & operator+=(Variable &variable) {
+        -:  144:        polynom_ = (*this + variable).get_polynom();
+        -:  145:        sort_by_powers();
+        -:  146:        return *this;
+        -:  147:    }
+        -:  148:
+        -:  149:    Polynom &operator+=(const double addend) {
+        -:  150:        polynom_ = (*this + addend).get_polynom();
+        -:  151:        sort_by_powers();
+        -:  152:        return *this;
+        -:  153:    }
+        -:  154:
+        -:  155:    Polynom &operator-(Polynom &polynom) const {
+        -:  156:        std::vector<Variable> tmp;
+        -:  157:        for (const auto & i : polynom_) {
+        -:  158:            for (long long j = 0; j < polynom.polynom_.size(); ++j) {
+        -:  159:                try {
+        -:  160:                    tmp.push_back(i - polynom_[j]);
+        -:  161:                } catch (AlgebraException &exception) {
+        -:  162:                    if (exception.get_id() != VARIABLE_NOT_SUMMABLE)
+        -:  163:                        throw AlgebraException(exception.what(), exception.get_id());
+        -:  164:                    else if (j == polynom.polynom_.size() - 1){
+        -:  165:                        tmp.push_back(i);
+        -:  166:                        tmp.push_back(polynom_[j]);
+        -:  167:                    }
+        -:  168:                }
+        -:  169:            }
+        -:  170:        }
+        -:  171:
+        -:  172:        Polynom temp_sorted(tmp);
+        -:  173:        temp_sorted.sort_by_powers();
+        -:  174:        return *(new Polynom(temp_sorted));
+        -:  175:    }
+        -:  176:
+        -:  177:    Polynom &operator-(Variable &variable) const {
+        -:  178:        Polynom tmp(variable);
+        -:  179:        Polynom temp_sorted(*this - tmp);
+        -:  180:        temp_sorted.sort_by_powers();
+        -:  181:        return *(new Polynom(temp_sorted));
+        -:  182:    }
+        -:  183:
+        -:  184:    Polynom &operator-(const double subtrahend) const {
+        -:  185:        Variable tmp(subtrahend);
+        -:  186:        return *(new Polynom(*this - tmp));
+        -:  187:    }
+        -:  188:
+        -:  189:    Polynom & operator-=(Polynom &polynom) {
+        -:  190:        polynom_ = (*this - polynom).get_polynom();
+        -:  191:        sort_by_powers();
+        -:  192:        return *this;
+        -:  193:    }
+        -:  194:
+        -:  195:    Polynom & operator-=(Variable &variable) {
+        -:  196:        polynom_ = (*this - variable).get_polynom();
+        -:  197:        sort_by_powers();
+        -:  198:        return *this;
+        -:  199:    }
+        -:  200:
+        -:  201:    Polynom &operator-=(const double subtrahend) {
+        -:  202:        polynom_ = (*this - subtrahend).get_polynom();
+        -:  203:        sort_by_powers();
+        -:  204:        return *this;
+        -:  205:    }
+        -:  206:
+        -:  207:    Polynom &operator*(const double multiplier) {
+        -:  208:        for (auto &i : polynom_)
+        -:  209:            i *= multiplier;
+        -:  210:        sort_by_powers();
+        -:  211:        return *this;
+        -:  212:    }
+        -:  213:
+        -:  214:    Polynom &operator*(const Variable &multiplier) {
+        -:  215:        std::vector<Variable> tmp;
+        -:  216:        for (auto &i : polynom_) {
+        -:  217:            try {
+        -:  218:                tmp.push_back(i * multiplier);
+        -:  219:            } catch (AlgebraException &exception) {
+        -:  220:                if (exception.get_id() != VARIABLE_NOT_MULTIPLIABLE)
+        -:  221:                    throw AlgebraException(exception.what(), exception.get_id());
+        -:  222:            }
+        -:  223:        }
+        -:  224:        Polynom temp_sorted(tmp);
+        -:  225:        temp_sorted.sort_by_powers();
+        -:  226:        return *(new Polynom(temp_sorted));
+        -:  227:    }
+        -:  228:
+        -:  229:    Polynom &operator*(const Polynom &polynom) {
+        -:  230:        std::vector<Variable> tmp;
+        -:  231:        for (auto &i : polynom_) {
+        -:  232:            for (auto &j : polynom_) {
+        -:  233:                try {
+        -:  234:                    tmp.push_back(i * j);
+        -:  235:                } catch (AlgebraException &exception) {
+        -:  236:                    if (exception.get_id() != VARIABLE_NOT_MULTIPLIABLE)
+        -:  237:                        throw AlgebraException(exception.what(), exception.get_id());
+        -:  238:                }
+        -:  239:            }
+        -:  240:        }
+        -:  241:        Polynom temp_sorted(tmp);
+        -:  242:        temp_sorted.sort_by_powers();
+        -:  243:        return *(new Polynom(temp_sorted));
+        -:  244:    }
+        -:  245:
+        -:  246:    Polynom &operator/(const double divider) {
+        -:  247:        std::vector<Variable> tmp;
+        -:  248:        for (auto &i : polynom_) {
+        -:  249:            try {
+        -:  250:                tmp.push_back(i / divider);
+        -:  251:            } catch (AlgebraException &exception){
+        -:  252:                if (exception.get_id() != VARIABLE_DIVISION_BY_ZERO)
+        -:  253:                    throw AlgebraException(exception.what(), exception.get_id());
+        -:  254:            }
+        -:  255:        }
+        -:  256:        Polynom temp_sorted(tmp);
+        -:  257:        temp_sorted.sort_by_powers();
+        -:  258:        return *(new Polynom(temp_sorted));
+        -:  259:    }
+        -:  260:
+        -:  261:    Polynom &operator*=(const double multiplyer) {
+        -:  262:        polynom_ = (*this * multiplyer).get_polynom();
+        -:  263:        sort_by_powers();
+        -:  264:        return *this;
+        -:  265:    }
+        -:  266:
+        -:  267:    Polynom &operator*=(const Variable &variable) {
+        -:  268:        polynom_ = (*this * variable).get_polynom();
+        -:  269:        sort_by_powers();
+        -:  270:        return *this;
+        -:  271:    }
+        -:  272:
+        -:  273:    Polynom &operator*=(const Polynom &polynom) {
+        -:  274:        polynom_ = (*this * polynom).get_polynom();
+        -:  275:        sort_by_powers();
+        -:  276:        return *this;
+        -:  277:    }
+        -:  278:
+        -:  279:    Polynom &operator/=(const double divider) {
+        -:  280:        polynom_ = (*this / divider).get_polynom();
+        -:  281:        sort_by_powers();
+        -:  282:        return *this;
+        -:  283:    }
+        -:  284:
+        -:  285:    Variable operator[](const long long index) {
+        -:  286:        sort_by_powers();
+        -:  287:        return polynom_[index];
+        -:  288:    }
+        -:  289:
+        -:  290:    friend std::ostream &operator<<(std::ostream &to, Polynom &polynom);
+        -:  291:    friend std::istream &operator>>(std::istream &from, Polynom &polynom);
+        -:  292:};
+        -:  293:
+function _ZlsRSoR7Polynom called 0 returned 0% blocks executed 0%
+    #####:  294:std::ostream &operator<<(std::ostream &to, Polynom &polynom) {
+    #####:  295:    polynom.sort_by_powers();
+    %%%%%:  295-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  296:    std::string space = " ";
+    %%%%%:  296-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  296-block  1
+    $$$$$:  296-block  2
+call    4 never executed
+    #####:  297:    for (auto &i : polynom.polynom_) {
+call    0 never executed
+call    1 never executed
+    %%%%%:  297-block  0
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:  297-block  1
+call    5 never executed
+    %%%%%:  297-block  2
+call    6 never executed
+    #####:  298:        to << i << space;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+        -:  299:    }
+    #####:  300:    return to;
+    %%%%%:  300-block  0
+call    0 never executed
+    %%%%%:  300-block  1
+        -:  301:}
+        -:  302:
+function _ZrsRSiR7Polynom called 0 returned 0% blocks executed 0%
+    #####:  303:std::istream &operator>>(std::istream &from, Polynom &polynom) {
+    #####:  304:    std::string buffer;
+    %%%%%:  304-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  304-block  1
+call    2 never executed
+    #####:  305:    std::string temp_buffer;
+call    0 never executed
+    $$$$$:  305-block  0
+call    1 never executed
+    #####:  306:    from >> buffer;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  307:
+    #####:  308:    for (char i : buffer) {
+    %%%%%:  308-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  308-block  1
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:  308-block  2
+call    5 never executed
+    %%%%%:  308-block  3
+call    6 never executed
+    #####:  309:        if (i == '\\') {
+branch  0 never executed
+branch  1 never executed
+        -:  310:            try {
+    #####:  311:                if (temp_buffer[0] == '+')
+    %%%%%:  311-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  311-block  1
+branch  3 never executed
+branch  4 never executed
+    #####:  312:                    temp_buffer.erase(temp_buffer.begin());
+    %%%%%:  312-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:  312-block  1
+    $$$$$:  312-block  2
+    $$$$$:  312-block  3
+    #####:  313:                Variable tmp(temp_buffer);
+    %%%%%:  313-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  313-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  313-block  2
+call    6 never executed
+    $$$$$:  313-block  3
+    $$$$$:  313-block  4
+call    7 never executed
+    #####:  314:                polynom.polynom_.push_back(tmp);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  315:                temp_buffer.clear();
+    %%%%%:  315-block  0
+call    0 never executed
+    #####:  316:                continue;
+    =====:  317:            } catch (AlgebraException &exception) {
+    $$$$$:  317-block  0
+call    0 never executed
+    $$$$$:  317-block  1
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    =====:  318:                continue;
+        -:  319:            }
+        -:  320:        }
+    #####:  321:        temp_buffer.push_back(i);
+    %%%%%:  321-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  322:    }
+        -:  323:
+    #####:  324:    return from;
+    %%%%%:  324-block  0
+call    0 never executed
+    %%%%%:  324-block  1
+        -:  325:}
+        -:  326:

@@ -1,0 +1,140 @@
+        -:    0:Source:/mnt/d/labs_prog_cpp/lab1/class/closed_polyline.h
+        -:    0:Graph:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcno
+        -:    0:Data:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef LABS_PROGRAMMING_CLOSED_POLYLINE_H
+        -:    2:#ifdef LABS_PROGRAMMING_POLYLINE_H
+        -:    3:#define LABS_PROGRAMMING_CLOSED_POLYLINE_H
+        -:    4:
+        -:    5:class ClosedPolyline : public Polyline {
+        -:    6:protected:
+        -:    7:    /// Checks if there are some other points equal to [needle], but not at [index] position at [source]
+function _ZN14ClosedPolyline15check_if_uniqueERKSt6vectorI5PointSaIS1_EExRKS1_ called 47 returned 100% blocks executed 45%
+       47:    8:    static bool check_if_unique(const std::vector<Point> &source, const long long index, const Point &needle) {
+      47*:    9:        return !(std::any_of(source.begin(), source.begin() + index, equal_points_predicate(needle)) &&
+       47:    9-block  0
+call    0 returned 47
+call    1 returned 47
+call    2 returned 47
+call    3 returned 47
+call    4 returned 47
+branch  5 taken 47 (fallthrough)
+branch  6 taken 0 (throw)
+       47:    9-block  1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 47
+       47:    9-block  2
+    %%%%%:    9-block  3
+    $$$$$:    9-block  4
+      47*:   10:                 std::any_of(source.begin() + index + 1, source.end(), equal_points_predicate(needle)));
+    %%%%%:   10-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:   10-block  1
+branch  8 never executed
+branch  9 never executed
+       47:   10-block  2
+       47:   10-block  3
+    $$$$$:   10-block  4
+    $$$$$:   10-block  5
+    $$$$$:   10-block  6
+        -:   11:    }
+        -:   12:
+        -:   13:public:
+        -:   14:    /// Returns the length of a closed polyline
+function _ZNK14ClosedPolyline10get_lengthEv called 5 returned 100% blocks executed 100%
+        5:   15:    [[nodiscard]] double get_length() const noexcept final {
+        5:   16:        double length = 0;
+       17:   17:        for (long long i = 0; i < points_.size() - 1; ++i) {
+        5:   17-block  0
+       17:   17-block  1
+call    0 returned 17
+branch  1 taken 12 (fallthrough)
+branch  2 taken 5
+       12:   18:            length += std::sqrt(
+       12:   19:                    (points_[i + 1].getX() - points_[i].getX()) * (points_[i + 1].getX() - points_[i].getX())
+       12:   19-block  0
+call    0 returned 12
+call    1 returned 12
+call    2 returned 12
+call    3 returned 12
+call    4 returned 12
+call    5 returned 12
+call    6 returned 12
+call    7 returned 12
+       12:   20:                    + (points_[i + 1].getY() - points_[i].getY()) * (points_[i + 1].getY() - points_[i].getY()));
+call    0 returned 12
+call    1 returned 12
+call    2 returned 12
+call    3 returned 12
+call    4 returned 12
+call    5 returned 12
+call    6 returned 12
+call    7 returned 12
+        -:   21:        }
+        5:   22:        length += sqrt((points_[points_.size() - 1].getX() - points_[0].getX())
+        5:   22-block  0
+call    0 returned 5
+call    1 returned 5
+call    2 returned 5
+call    3 returned 5
+call    4 returned 5
+        5:   23:                       * (points_[points_.size() - 1].getX() - points_[0].getX())
+call    0 returned 5
+call    1 returned 5
+call    2 returned 5
+call    3 returned 5
+call    4 returned 5
+        5:   24:                       + (points_[points_.size() - 1].getY() - points_[0].getY())
+call    0 returned 5
+call    1 returned 5
+call    2 returned 5
+call    3 returned 5
+call    4 returned 5
+        5:   25:                         * (points_[points_.size() - 1].getY() - points_[0].getY()));
+call    0 returned 5
+call    1 returned 5
+call    2 returned 5
+call    3 returned 5
+call    4 returned 5
+        5:   26:        return length;
+        -:   27:    }
+        -:   28:
+        -:   29:    /// Changes the coordinates of point to (new_x; new_y). Skips if the point was not found or point
+        -:   30:    /// located at (new_x; new_y) is already exists at the polyline.
+function _ZN14ClosedPolyline12change_pointERK5Pointdd called 6 returned 100% blocks executed 100%
+        6:   31:    void change_point(const Point &point, const double new_x, const double new_y) override {
+        6:   32:        Polyline::change_point(point, new_x, new_y);
+        6:   32-block  0
+call    0 returned 6
+        6:   33:    };
+        -:   34:
+        -:   35:    /// This constructor is only used for dynamic polymorphism
+function _ZN14ClosedPolylineC2Ev called 10 returned 100% blocks executed 100%
+       10:   36:    ClosedPolyline() noexcept : Polyline() {}
+       10:   36-block  0
+call    0 returned 10
+        -:   37:
+        -:   38:    explicit ClosedPolyline(const Point pts[], unsigned long long count = 3) : Polyline(pts, count) {}
+        -:   39:
+function _ZN14ClosedPolylineC2ERKSt6vectorI5PointSaIS1_EE called 25 returned 92% blocks executed 100%
+       25:   40:    explicit ClosedPolyline(const std::vector<Point> &pts) : Polyline(pts) {}
+       25:   40-block  0
+call    0 returned 23
+        -:   41:
+        -:   42:    explicit ClosedPolyline(const Polyline &source) : Polyline(source) {}
+        -:   43:
+        -:   44:    ClosedPolyline &operator=(const ClosedPolyline &source) {
+        -:   45:        points_ = source.get_polyline();
+        -:   46:        return *this;
+        -:   47:    }
+        -:   48:};
+        -:   49:
+        -:   50:#endif //LABS_PROGRAMMING_POLYLINE_H
+        -:   51:#endif //LABS_PROGRAMMING_CLOSED_POLYLINE_H

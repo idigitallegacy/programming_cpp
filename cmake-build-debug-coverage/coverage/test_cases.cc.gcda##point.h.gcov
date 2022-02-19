@@ -1,0 +1,86 @@
+        -:    0:Source:/mnt/d/labs_prog_cpp/lab1/class/point.h
+        -:    0:Graph:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcno
+        -:    0:Data:/mnt/d/labs_prog_cpp/lab1/cmake-build-debug-coverage/CMakeFiles/main_test.dir/test_cases.cc.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef LABS_PROGRAMMING_POINT_H
+        -:    2:#define LABS_PROGRAMMING_POINT_H
+        -:    3:
+        -:    4:
+        -:    5:class Point {
+        -:    6:private:
+        -:    7:    double x_;
+        -:    8:    double y_;
+        -:    9:public:
+function _ZN5PointC2Ev called 4 returned 100% blocks executed 100%
+        4:   10:    Point() : x_(0), y_(0) {};
+        -:   11:
+function _ZN5PointC2Edd called 438 returned 100% blocks executed 100%
+      438:   12:    Point(const double x, const double y) : x_(x), y_(y) {}
+        -:   13:
+function _ZN5PointC2ERKS_ called 1693 returned 100% blocks executed 100%
+     1693:   14:    Point(const Point &source) {
+     1693:   15:        x_ = source.x_;
+     1693:   16:        y_ = source.y_;
+     1693:   17:    }
+        -:   18:
+        -:   19:    Point &operator=(const Point &source) = default;
+        -:   20:
+        -:   21:    /// Sets the x coordinate of a point to new_x
+function _ZN5Point4setXEd called 9 returned 100% blocks executed 100%
+        9:   22:    void setX(const double new_x) {
+        9:   23:        x_ = new_x;
+        9:   24:    }
+        -:   25:
+        -:   26:    /// Sets the y coordinate of a point to new_y
+function _ZN5Point4setYEd called 8 returned 100% blocks executed 100%
+        8:   27:    void setY(const double new_y) {
+        8:   28:        y_ = new_y;
+        8:   29:    }
+        -:   30:
+function _ZN5Point5setXYEdd called 6 returned 100% blocks executed 100%
+        6:   31:    void setXY(const double new_x, const double new_y) {
+        6:   32:        x_ = new_x;
+        6:   33:        y_ = new_y;
+        6:   34:    }
+        -:   35:
+        -:   36:    /// Returns the x coordinate
+function _ZNK5Point4getXEv called 2050 returned 100% blocks executed 100%
+     2050:   37:    [[nodiscard]] double getX() const {
+     2050:   38:        return x_;
+     2050:   38-block  0
+        -:   39:    }
+        -:   40:
+        -:   41:    /// Returns the y coordinate
+function _ZNK5Point4getYEv called 1650 returned 100% blocks executed 100%
+     1650:   42:    [[nodiscard]] double getY() const {
+     1650:   43:        return y_;
+     1650:   43-block  0
+        -:   44:    }
+        -:   45:
+function _ZNK5PointeqERKS_ called 279 returned 100% blocks executed 100%
+      279:   46:    bool operator==(const Point &source) const {
+      279:   47:        return this->getX() == source.getX() && this->getY() == source.getY();
+      279:   47-block  0
+call    0 returned 279
+call    1 returned 279
+branch  2 taken 79 (fallthrough)
+branch  3 taken 200
+       79:   47-block  1
+call    4 returned 79
+call    5 returned 79
+branch  6 taken 23 (fallthrough)
+branch  7 taken 56
+       23:   47-block  2
+      256:   47-block  3
+      279:   47-block  4
+        -:   48:    }
+        -:   49:
+        -:   50:    bool operator!=(const Point &source) const {
+        -:   51:        return !(this->getX() == source.getX() && this->getY() == source.getY());
+        -:   52:    }
+        -:   53:
+        -:   54:    ~Point() = default;
+        -:   55:};
+        -:   56:
+        -:   57:
+        -:   58:#endif //LABS_PROGRAMMING_POINT_H
