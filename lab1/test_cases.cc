@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "linker/linker.h"
+#include "../linker/linker.h"
 
 
 TEST(Point, Creation) { //NOLINT
